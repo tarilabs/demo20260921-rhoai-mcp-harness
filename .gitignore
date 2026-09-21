@@ -1,0 +1,5 @@
+.vscode
+.active-session
+
+# claude code settings contains demo for rhoai-mcp connection
+!.mcp.json
