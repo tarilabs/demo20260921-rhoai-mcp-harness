@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "rhoai-mcp": {
+      "headers": {
+        "Authorization": "!/Users/mmortari/git/demo20260921-rhoai-mcp-harness/.pi/oc-whoami-t-bearer"
+      }
+    }
+  }
+}

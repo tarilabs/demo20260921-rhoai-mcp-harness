@@ -1,0 +1,2 @@
+#!/bin/sh
+exec printf 'Bearer %s\n' "$(oc whoami -t)"

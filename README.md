@@ -132,3 +132,47 @@ Build · GPT-5.6 Terra · 5.9s · 25.3 tok/s
 
 Note: seems like opencode sources the token from the service setup invocations
 
+# pi
+
+setup:
+
+```
+pi install npm:pi-mcp-adapter
+```
+
+using root `.mcp.json` but with Pi-specific override at .pi/mcp.json
+```json
+{
+  "mcpServers": {
+    "rhoai-mcp": {
+      "headers": {
+        "Authorization": "!/Users/mmortari/git/demo20260921-rhoai-mcp-harness/.pi/oc-whoami-t-bearer"
+      }
+    }
+  }
+}
+```
+
+and helper script `.pi/oc-whoami-t-bearer`:
+```sh
+#!/bin/sh
+exec printf 'Bearer %s\n' "$(oc whoami -t)"
+```
+
+usage:
+
+```
+pi
+
+using rhoai-mcp, list the available data science projects 
+
+ mcp search list data science projects @ rhoai-mcp → Found 13 tools matching "list data science projects": … (Ctrl+O to expand)
+
+ mcp call rhoai-mcp_list_data_science_projects { "verbosity": "minimal" } → { … (Ctrl+O to expand)
+
+ Available Data Science
+ Projects:                                                               
+
+ - prova — Ready
+
+```
