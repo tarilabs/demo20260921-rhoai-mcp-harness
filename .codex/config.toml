@@ -1,0 +1,6 @@
+[mcp_servers.rhoai-mcp]
+url = "https://rhoai-mcp-rhoai-mcp.apps.rosa.mmortari-rosa2.54u1.p3.openshiftapps.com/mcp"
+http_headers_helper = "/Users/mmortari/git/demo20260921-rhoai-mcp-harness/.codex/rhoai-mcp-headers"
+
+[mcp_servers.rhoai-mcp.tools.cluster_summary]
+approval_mode = "approve"

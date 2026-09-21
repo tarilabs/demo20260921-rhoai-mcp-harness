@@ -3,3 +3,7 @@
 
 # claude code settings contains demo for rhoai-mcp connection
 !.mcp.json
+
+# codex settings and helper script
+!.codex/config.toml
+!.codex/rhoai-mcp-headers

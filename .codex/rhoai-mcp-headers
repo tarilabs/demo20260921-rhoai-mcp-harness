@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+token="$(oc whoami -t)"
+printf '{"Authorization":"Bearer %s"}\n' "$token"
