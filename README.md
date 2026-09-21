@@ -85,3 +85,50 @@ codex
 Notes:
 Codex caches helper headers, then re-runs the helper after a same-origin 401 or 403; that is the documented token-refresh behavior for http_headers_helper. [Official OpenAI documentation](https://learn.chatgpt.com/docs/extend/mcp?surface=cli#cli-streamable-http-servers).
 Alternatively, do similar setup of exporting OCP_TOKEN, and setup config.toml to use the Env variable.
+
+# opencode
+
+setup:
+
+opencode.json:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "rhoai-mcp": {
+        "type": "remote",
+        "url": "https://rhoai-mcp-rhoai-mcp.apps.rosa.mmortari-rosa2.54u1.p3.openshiftapps.com/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:OCP_TOKEN}"
+        }
+      }
+    }
+  }
+}
+```
+
+```
+export OCP_TOKEN="$(oc whoami -t)"
+opencode service restart
+opencode reload
+opencode mcp list
+opencode
+```
+
+usage:
+
+```
+using the rhoai-mcp, list available data science projects
+✓execute
+›search [query=data science projects, namespace=rhoai-mcp, limit=10]
+✓execute
+›rhoai-mcp.list_data_science_projects [verbosity=standard]
+Available Data Science Projects:
+- prova — Ready, ModelMesh disabled, requester: mmortari
+Build · GPT-5.6 Terra · 5.9s · 25.3 tok/s
+```
+
+Note: seems like opencode sources the token from the service setup invocations
+

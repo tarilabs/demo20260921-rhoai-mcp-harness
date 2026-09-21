@@ -1,0 +1,14 @@
+{
+  "mcp": {
+    "servers": {
+      "rhoai-mcp": {
+        "type": "remote",
+        "url": "https://rhoai-mcp-rhoai-mcp.apps.rosa.mmortari-rosa2.54u1.p3.openshiftapps.com/mcp",
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:OCP_TOKEN}"
+        }
+      }
+    }
+  }
+}
